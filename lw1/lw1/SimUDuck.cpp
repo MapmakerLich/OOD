@@ -9,13 +9,14 @@ using namespace std;
 struct IFlyBehavior
 {
 	virtual ~IFlyBehavior() {};
-	virtual void Fly() = 0;
+	virtual void Fly(int &flying) = 0;
 };
 class FlyWithWings : public IFlyBehavior
 {
 public:
-	void Fly() override
+	void Fly(int &flying) override
 	{
+		flying++;
 		cout << "I'm flying with wings!!" << endl;
 	}
 };
@@ -23,7 +24,7 @@ public:
 class FlyNoWay : public IFlyBehavior
 {
 public:
-	void Fly() override {}
+	void Fly(int &flying) override {}
 };
 
 struct IDanceBehavior
@@ -103,9 +104,10 @@ public:
 	{
 		cout << "I'm swimming" << endl;
 	}
-	void Fly()
+	void Fly(int &flying)
 	{
-		m_flyBehavior->Fly();
+		m_flyBehavior->Fly(flying);
+		cout << "Taked off: " << flying << endl;
 	}
 	virtual void Dance()
 	{
@@ -211,11 +213,11 @@ void DrawDuck(Duck const& duck)
 	duck.Display();
 }
 
-void PlayWithDuck(Duck& duck)
+void PlayWithDuck(Duck& duck, int &flying)
 {
 	DrawDuck(duck);
 	duck.Quack();
-	duck.Fly();
+	duck.Fly(flying);
 	duck.Dance();
 	cout << endl;
 }
@@ -223,20 +225,21 @@ void PlayWithDuck(Duck& duck)
 int main()
 {
 	MallardDuck mallardDuck;
-	PlayWithDuck(mallardDuck);
+	int flying = 0;
+	PlayWithDuck(mallardDuck, flying);
 
 	RedheadDuck redheadDuck;
-	PlayWithDuck(redheadDuck);
+	PlayWithDuck(redheadDuck, flying);
 
 	RubberDuck rubberDuck;
-	PlayWithDuck(rubberDuck);
+	PlayWithDuck(rubberDuck, flying);
 
 	DecoyDuck decoyDuck;
-	PlayWithDuck(decoyDuck);
+	PlayWithDuck(decoyDuck, flying);
 
 	ModelDuck modelDuck;
-	PlayWithDuck(modelDuck);
+	PlayWithDuck(modelDuck, flying);
 	modelDuck.SetFlyBehavior(make_unique<FlyWithWings>());
-	PlayWithDuck(modelDuck);
+	PlayWithDuck(modelDuck, flying);
 	return 0;
 }

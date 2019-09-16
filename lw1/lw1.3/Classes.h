@@ -4,7 +4,7 @@
 class Duck
 {
 public:
-	Duck(const function<void()> &flyBehavior, const function<void()> &danceBehavior, const function<void()> &quackBehavior)
+	Duck(const FlyBehavior &flyBehavior, const DanceBehavior &danceBehavior, const QuackBehavior &quackBehavior)
 		: m_quackBehavior(quackBehavior), m_danceBehavior(danceBehavior), m_flyBehavior(flyBehavior)
 	{
 	}
@@ -25,7 +25,7 @@ public:
 		cout << "I'm swimming" << endl;
 	}
 
-	void SetFly(const function<void()> &flyBehavior)
+	void SetFly(const FlyBehavior &flyBehavior)
 	{
 		m_flyBehavior = flyBehavior;
 	}
@@ -33,9 +33,9 @@ public:
 	virtual void Display() const = 0;
 	virtual ~Duck() = default;
 private:
-	function<void()> m_quackBehavior;
-	function<void()> m_flyBehavior;
-	function<void()> m_danceBehavior;
+	QuackBehavior m_quackBehavior;
+	FlyBehavior m_flyBehavior;
+	DanceBehavior m_danceBehavior;
 };
 
 class MallardDuck : public Duck

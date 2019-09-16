@@ -28,7 +28,7 @@ void NoFly()
 {
 }
 
-function<void()> FlyWithWings()
+FlyBehavior FlyWithWings()
 {
 	size_t flying = 0;
 	return[flying]() mutable

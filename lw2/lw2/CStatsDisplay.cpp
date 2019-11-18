@@ -32,12 +32,6 @@ void CStatsDisplay::Update(SWeatherInfo const& data, string str)
 	Output(m_minPressure, m_maxPressure, m_accPressure, m_countAccPress, str);
 	cout << str + " Humidity:" << endl;
 	Output(m_minHumidity, m_maxHumidity, m_accHumidity, m_countAccHum, str);
-	ChangeData(m_minDir, m_maxDir, m_accDir, data.dir, m_countAccDir);
-	ChangeData(m_minSpeed, m_maxSpeed, m_accSpeed, data.speed, m_countAccSpeed);
-	cout << str + " Speed: " << endl;
-	Output(m_minSpeed, m_maxSpeed, m_accSpeed, m_countAccSpeed, str);
-	cout << str + " Direction: " << endl;
-	Output(m_minDir, m_maxDir, m_accDir, m_countAccDir, str);
 	cout << "----------------" << endl;
 }
 

@@ -1,95 +1,24 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <climits>
-#include "Observer.h"
+//#include "CStatsDisplay.h"
+#include "Observable.h"
 
 struct SWeatherInfo
 {
 	double temperature = 0;
 	double humidity = 0;
 	double pressure = 0;
-};
-
-class CDisplay : public IObserver<SWeatherInfo>
-{
-private:
-	/* Метод Update сделан приватным, чтобы ограничить возможность его вызова напрямую
-		Классу CObservable он будет доступен все равно, т.к. в интерфейсе IObserver он
-		остается публичным
-	*/
-	void Update(SWeatherInfo const& data) override
-	{
-		cout << "Current Temp " << data.temperature << endl;
-		cout << "Current Hum " << data.humidity << endl;
-		cout << "Current Pressure " << data.pressure << endl;
-		cout << "----------------" << endl;
-	}
-};
-
-class CStatsDisplay : public IObserver<SWeatherInfo>
-{
-private:
-	/* Метод Update сделан приватным, чтобы ограничить возможность его вызова напрямую
-	Классу CObservable он будет доступен все равно, т.к. в интерфейсе IObserver он
-	остается публичным
-	*/
-	void Update(SWeatherInfo const& data) override
-	{
-		resetData(m_minTemperature, m_maxTemperature, m_accTemperature, data.temperature, m_countAccTemp);
-		resetData(m_minHumidity, m_maxHumidity, m_accHumidity, data.humidity, m_countAccPress);
-		resetData(m_minPressure, m_maxPressure, m_accPressure, data.pressure, m_countAccPress);
-		cout << "Temperature:" << endl;
-		output(m_minTemperature, m_maxTemperature, m_accTemperature, m_countAccTemp);
-		cout << "Pressure:" << endl;
-		output(m_minPressure, m_maxPressure, m_accPressure, m_countAccPress);
-		cout << "Humidity:" << endl;
-		output(m_minHumidity, m_maxHumidity, m_accHumidity, m_countAccPress);
-		cout << "----------------" << endl;
-	}
-
-	void output(double min, double max, double acc, unsigned count)
-	{
-		cout << "Min " << min << endl;
-		cout << "Max " << max << endl;
-		cout << "Average " << (acc / count) << endl;
-		cout << endl;
-	}
-
-	void resetData(double& min, double& max, double& acc, double givenData, unsigned& count)
-	{
-		if (min > givenData)
-		{
-			min = givenData;
-		}
-		if (max < givenData)
-		{
-			max = givenData;
-		}
-		acc += givenData;
-		count++;
-	}
-
-	double m_minTemperature = std::numeric_limits<double>::infinity();
-	double m_maxTemperature = -std::numeric_limits<double>::infinity();
-	double m_accTemperature = 0;
-	unsigned m_countAccTemp = 0;
-
-	double m_minHumidity = std::numeric_limits<double>::infinity();
-	double m_maxHumidity = -std::numeric_limits<double>::infinity();
-	double m_accHumidity = 0;
-	unsigned m_countAccHum = 0;
-
-	double m_minPressure = std::numeric_limits<double>::infinity();
-	double m_maxPressure = -std::numeric_limits<double>::infinity();
-	double m_accPressure = 0;
-	unsigned m_countAccPress = 0;
+	double dir = 0;
+	double speed = 0;
 };
 
 class CWeatherData : public CObservable<SWeatherInfo>
 {
 public:
+	CWeatherData(string str)
+	{
+		m_name = str;
+	}
+
 	// Температура в градусах Цельсия
 	double GetTemperature()const
 	{

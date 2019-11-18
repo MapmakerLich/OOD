@@ -159,11 +159,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CDisplay.h" />
+    <ClInclude Include="CStatsDisplay.h" />
+    <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="WeatherData.h" />
+    <ClInclude Include="WeatherDataPro.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDisplay.cpp" />
+    <ClCompile Include="CStatsDisplay.cpp" />
     <ClCompile Include="WeatherStation.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

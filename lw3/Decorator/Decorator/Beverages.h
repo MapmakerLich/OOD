@@ -35,11 +35,12 @@ public:
 	}
 };
 
+enum Portion { Single, Double };
+
 // Капуччино
 class CCappuccino : public CCoffee
 {
 public:
-	enum Portion { Single, Double };
 
 	CCappuccino(Portion portion = Portion::Single);
 
@@ -52,7 +53,6 @@ private:
 class CLatte : public CCoffee
 {
 public:
-	enum Portion { Single, Double };
 
 	CLatte(Portion portion = Portion::Single);
 

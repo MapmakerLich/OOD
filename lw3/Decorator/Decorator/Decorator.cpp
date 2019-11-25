@@ -34,13 +34,13 @@ auto operator << (Component && component, const Decorator & decorate)
 int main()
 {
 	unique_ptr<IBeverage> tea =
-		make_unique<CColdTea>()
+		make_unique<CChineseTea>()
 		<< DecorateWith<CLemon>(1)
 		<< DecorateWith<CIceCubes>(2, IceCubeType::Dry);
 	cout << tea->GetDescription() << " costs " << tea->GetCost() << endl;
 
 	unique_ptr<IBeverage> coffee =
-		make_unique<CCappuccino>(CCappuccino::Portion::Single)
+		make_unique<CCappuccino>(Portion::Single)
 		<< DecorateWith<CCinnamon>()
 		<< DecorateWith<CLiquor>(LiquorType::Chocolate)
 		<< DecorateWith<CCream>()

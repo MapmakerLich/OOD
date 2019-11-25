@@ -16,12 +16,6 @@ auto DecorateWith(const Args&...args)
 	};
 }
 
-function<IBeveragePtr(IBeveragePtr &&)> MakeCinnamon()
-{
-	return [](IBeveragePtr && b) {
-		return make_unique<CCinnamon>(move(b));
-	};
-}
 
 template <typename Condiment, typename... Args>
 auto MakeCondiment(const Args&...args)

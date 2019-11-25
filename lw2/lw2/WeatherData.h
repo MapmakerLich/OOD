@@ -7,8 +7,6 @@ struct SWeatherInfo
 	double temperature = 0;
 	double humidity = 0;
 	double pressure = 0;
-	double dir = 0;
-	double speed = 0;
 };
 
 class CWeatherData : public CObservable<SWeatherInfo>

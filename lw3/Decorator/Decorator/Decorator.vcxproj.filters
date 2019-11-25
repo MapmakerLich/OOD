@@ -27,6 +27,12 @@
     <ClInclude Include="Beverages.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="CTea.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="CMilkshake.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -41,10 +47,10 @@
     <ClCompile Include="CCappuccino.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="CTea.cpp">
+    <ClCompile Include="CMilkshake.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="CMilkshake.cpp">
+    <ClCompile Include="Condiments.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,7 +3,8 @@
 
 struct SWeatherInfoPro : public SWeatherInfo
 {
-
+	double dir = 0;
+	double speed = 0;
 };
 
 class CWeatherDataPro : public CObservable<SWeatherInfoPro>

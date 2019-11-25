@@ -37,7 +37,7 @@ void CStatsDisplay::Update(SWeatherInfo const& data, string str)
 
 void CStatsDisplay::Update(SWeatherInfoPro const& data, string str)
 {
-	RemoveObservers();
+	//RemoveObservers();
 	ChangeData(m_minTemperature, m_maxTemperature, m_accTemperature, data.temperature, m_countAccTemp);
 	ChangeData(m_minPressure, m_maxPressure, m_accPressure, data.pressure, m_countAccPress);
 	ChangeData(m_minHumidity, m_maxHumidity, m_accHumidity, data.humidity, m_countAccHum);

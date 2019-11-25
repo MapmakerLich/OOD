@@ -1,4 +1,5 @@
 #include "Beverages.h"
+#include "CMilkshake.h"
 
 CMilkshake::CMilkshake(Portion portion)
 	: CBeverage(PortionToString(portion) + " milkshake")

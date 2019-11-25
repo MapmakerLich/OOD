@@ -156,7 +156,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Beverages.h" />
+    <ClInclude Include="CMilkshake.h" />
     <ClInclude Include="Condiments.h" />
+    <ClInclude Include="CTea.h" />
     <ClInclude Include="IBeverage.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -164,7 +166,7 @@
     <ClCompile Include="CCappuccino.cpp" />
     <ClCompile Include="CLatte.cpp" />
     <ClCompile Include="CMilkshake.cpp" />
-    <ClCompile Include="CTea.cpp" />
+    <ClCompile Include="Condiments.cpp" />
     <ClCompile Include="Decorator.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

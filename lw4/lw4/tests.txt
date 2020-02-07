@@ -1,0 +1,4 @@
+Rectangle -4 4 4 -4 Green
+Triangle -6 4 6 4 10 0 Red
+Ellipse 8 8 1 1 Blue
+RegularPolygon 6 0 0 2 Yellow
